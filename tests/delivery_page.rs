@@ -13,10 +13,12 @@ fn check_delivery_page(delivery_page: wolt::Page) -> anyhow::Result<()> {
                 let extra_keys = section._extra_fields.keys().collect::<Vec<&String>>();
                 assert_eq!(extra_keys, Vec::<&String>::new());
 
-                assert_ne!(section.items.len(), 0);
-                for item in section.items {
-                    let extra_keys = item._extra_fields.keys().collect::<Vec<&String>>();
-                    assert_eq!(extra_keys, Vec::<&String>::new());
+                if let Some(section_items) = &section.items {
+                    assert_ne!(section_items.len(), 0);
+                    for item in section_items {
+                        let extra_keys = item._extra_fields.keys().collect::<Vec<&String>>();
+                        assert_eq!(extra_keys, Vec::<&String>::new());
+                    }
                 }
             }
         }

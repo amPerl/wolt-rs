@@ -15,9 +15,3 @@ pub use estimate::*;
 
 mod page;
 pub use page::*;
-
-mod front_page;
-pub use front_page::*;
-
-mod delivery_page;
-pub use delivery_page::*;

@@ -2,6 +2,26 @@ use super::*;
 use serde::Deserialize;
 
 #[derive(Deserialize, Debug)]
+pub struct ConfigurationDebug {
+    pub a: i32,
+    pub b: i32,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct PageSectionItemVenueRating {
+    pub rating: i32,
+    pub score: f64,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct PageSectionItemVenue {
+    pub id: String,
+    pub name: String,
+    pub delivery_price: String,
+    pub rating: Option<PageSectionItemVenueRating>,
+}
+
+#[derive(Deserialize, Debug)]
 pub struct PageSectionItem {
     pub template: String,
     pub title: String,
@@ -24,16 +44,33 @@ pub struct PageSectionItem {
 }
 
 #[derive(Deserialize, Debug)]
+#[serde(tag = "image_type")]
+pub enum PageSectionImage {
+    #[serde(rename = "lottie")]
+    Lottie {
+        name: String,
+        url: String,
+        variants: Vec<String>,
+    },
+}
+
+#[derive(Deserialize, Debug)]
 pub struct PageSection {
-    pub items: Vec<PageSectionItem>,
+    pub items: Option<Vec<PageSectionItem>>,
     pub link: Link,
     pub template: String,
     pub name: String,
-
+    pub description: Option<String>,
+    pub image: Option<PageSectionImage>,
     pub title: Option<String>,
 
     #[serde(flatten)]
     pub _extra_fields: std::collections::HashMap<String, serde_json::Value>,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct PageCategory {
+    pub name: String,
 }
 
 #[derive(Deserialize, Debug)]
