@@ -64,6 +64,7 @@ pub struct MenuItemTime {
 #[derive(Deserialize, Debug)]
 pub struct MenuItemValidity {
     pub start_date: Date,
+    pub end_date: Option<Date>,
 
     #[serde(flatten)]
     pub _extra_fields: std::collections::HashMap<String, serde_json::Value>,
@@ -84,13 +85,14 @@ pub struct MenuItem {
     pub r#type: String,
     pub ftu_restrictions: Vec<String>,
     pub has_extra_info: bool,
-    pub image: Option<String>,
-    pub image_blurhash: Option<String>,
     pub checksum: String,
     pub is_venue_tip: bool,
     pub options: Vec<MenuItemOption>,
     pub tags: Vec<MenuItemTag>,
     pub times: Vec<MenuItemTime>,
+    pub quantity_left: Option<i32>,
+    pub image: Option<String>,
+    pub image_blurhash: Option<String>,
     pub allowed_order_types: Option<Vec<String>>,
     pub original_price: Option<i32>,
     pub validity: Option<MenuItemValidity>,

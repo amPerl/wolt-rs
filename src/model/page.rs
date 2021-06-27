@@ -59,10 +59,10 @@ pub enum PageSectionImage {
 
 #[derive(Deserialize, Debug)]
 pub struct PageSection {
-    pub items: Option<Vec<PageSectionItem>>,
     pub link: Link,
     pub template: String,
     pub name: String,
+    pub items: Option<Vec<PageSectionItem>>,
     pub description: Option<String>,
     pub image: Option<PageSectionImage>,
     pub title: Option<String>,

@@ -34,9 +34,9 @@ pub struct Link {
 
 #[derive(Deserialize, Debug)]
 pub struct Image {
-    pub blurhash: Option<String>,
     pub url: String,
     pub variants: Vec<String>,
+    pub blurhash: Option<String>,
 }
 
 #[derive(Deserialize, Debug)]

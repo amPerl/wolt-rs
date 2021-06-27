@@ -9,7 +9,7 @@ homepage = "https://github.com/amPerl/wolt-rs"
 repository = "https://github.com/amPerl/wolt-rs"
 
 [features]
-long_test = []
+crawl_test = []
 
 
 [dependencies]
