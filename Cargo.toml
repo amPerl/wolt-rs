@@ -8,6 +8,9 @@ license = "MIT"
 homepage = "https://github.com/amPerl/wolt-rs"
 repository = "https://github.com/amPerl/wolt-rs"
 
+[features]
+long_test = []
+
 
 [dependencies]
 anyhow = "1.0.41"
