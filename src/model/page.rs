@@ -22,21 +22,24 @@ pub struct PageSectionItemVenue {
 }
 
 #[derive(Deserialize, Debug)]
+pub struct PageSectionItemVideo {
+    pub url: String,
+}
+
+#[derive(Deserialize, Debug)]
 pub struct PageSectionItem {
     pub template: String,
     pub title: String,
     pub track_id: String,
     pub link: Link,
     pub image: Option<Image>,
-
     pub category: Option<String>,
     pub description: Option<String>,
     pub quantity: Option<i32>,
     pub quantity_str: Option<String>,
-
     pub venue: Option<PageSectionItemVenue>,
     pub overlay: Option<String>,
-
+    pub video: Option<PageSectionItemVideo>,
     pub price: Option<Price>,
 
     #[serde(flatten)]
